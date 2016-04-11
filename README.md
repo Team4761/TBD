@@ -3,6 +3,7 @@ A server for collecting, storing, managing, and analyzing scout data for FRC com
 
 ## Contributing
 To contribute you will need to have installed:
+
 1. [Bower](http://bower.io).
 
 Then select an issue to work on, or create an issue, and commit your changes to
