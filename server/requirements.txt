@@ -1,0 +1,6 @@
+Flask
+peewee
+celery
+flask-restful
+Flask-WTF
+pep8
