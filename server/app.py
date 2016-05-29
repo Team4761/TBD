@@ -1,6 +1,9 @@
 #!/usr/bin/env
 from flask import Flask
-app = Flask(__name__)
+junaid = Flask(__name__)
+
+from frontend import front
+junaid.register_blueprint(front)
 
 if __name__ == "__main__":
-	app.run()
+	junaid.run()
