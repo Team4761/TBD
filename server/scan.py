@@ -17,9 +17,9 @@ def correct_image(image):
             break
     #cv2.drawContours(image, [paper_contour], -1, (0, 255, 0), 2)
     pts1 = np.float32(paper_contour) # conversion for getPerspectiveTransform()
-    pts2 = np.float32([[0, 0], [0, 784], [560, 784], [560, 0]]) # must be in order of top left, bottom left, bottom right, top right
+    pts2 = np.float32([[0, 0], [0, 660], [510, 660], [510, 0]]) # must be in order of top left, bottom left, bottom right, top right
     transformation_matrix = cv2.getPerspectiveTransform(pts1, pts2) # get matrix for transformation
-    warped = cv2.warpPerspective(image, transformation_matrix, (560, 784)) # do the transformation
+    warped = cv2.warpPerspective(image, transformation_matrix, (510, 660)) # do the transformation
     return warped
 
 # just a little thing for testing. now you can run python scan.py <IMAGE>
