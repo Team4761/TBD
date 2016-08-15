@@ -3,6 +3,7 @@ import sys
 import unittest
 
 import server
+from server.vision import get_fullness_percent
 
 class TestScanner(unittest.TestCase):
     def test_result_shape(self):
@@ -14,3 +15,11 @@ class TestScanner(unittest.TestCase):
         corrected_shape = corrected.shape
         corrected_ratio = float(corrected_shape[0]) / float(corrected_shape[1])
         self.assertEqual(corrected_ratio, 11 / 8.5)
+
+class TestMiscVisionStuff(unittest.TestCase):
+    def test_get_fullness_percent(self):
+        image = cv2.imread('tests/resources/half_n_half.png')
+        self.assertEqual(get_fullness_percent(image), 0.5)
+
+if __name__ == '__main__':
+    unittest.main()
