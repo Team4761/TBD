@@ -28,5 +28,10 @@ class TestForm(unittest.TestCase):
         boolean_field = server.form.BooleanField(0,0,400,400)
         self.assertEqual(boolean_field.evaluate(image), False)
 
+    def test_multifield(self):
+        image = cv2.imread('tests/resources/half_n_half.png')
+        multifield = server.form.MultiField(0,0,400,400,2)
+        self.assertEqual(multifield.evaluate(image), 1)
+
 if __name__ == '__main__':
     unittest.main()
