@@ -6,4 +6,4 @@ bower:
 	bower install
 
 python-requirements:
-	pip install -r requirements.txt
+	sudo pip install -r requirements.txt
