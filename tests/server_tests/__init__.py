@@ -4,6 +4,7 @@ import unittest
 
 import server
 from server.vision import get_fullness_percent
+import server.form
 
 class TestScanner(unittest.TestCase):
     def test_result_shape(self):
@@ -18,8 +19,19 @@ class TestScanner(unittest.TestCase):
 
 class TestMiscVisionStuff(unittest.TestCase):
     def test_get_fullness_percent(self):
-        image = cv2.imread('tests/resources/half_n_half.png')
+        image = cv2.imread('tests/resources/half_n_half_marked.png')
         self.assertEqual(get_fullness_percent(image), 0.5)
+
+class TestForm(unittest.TestCase):
+    def test_boolean_field(self):
+        image = cv2.imread('tests/resources/half_n_half.png')
+        boolean_field = server.form.BooleanField(0,0,400,400)
+        self.assertEqual(boolean_field.evaluate(image), False)
+
+    def test_multifield(self):
+        image = cv2.imread('tests/resources/half_n_half.png')
+        multifield = server.form.MultiField(0,0,400,400,2)
+        self.assertEqual(multifield.evaluate(image), 1)
 
 if __name__ == '__main__':
     unittest.main()
