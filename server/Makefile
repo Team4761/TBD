@@ -3,7 +3,7 @@ setup: bower python-requirements
 static: bower
 
 bower:
-	bower install
+	bower install --allow-root
 
 python-requirements:
-	sudo pip install -r requirements.txt
+	pip install -r requirements.txt
